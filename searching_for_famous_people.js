@@ -35,4 +35,5 @@ knex.select().from('famous_people')
     .asCallback((err, rows) => {
       if(err) return console.log(err);
       displayResults(rows);
+
     });
