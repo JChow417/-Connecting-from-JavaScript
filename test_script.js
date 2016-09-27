@@ -1,6 +1,6 @@
 function inputQuery(query, cb) {
   //client.query("SELECT $1::int AS number", ["1"], (err, result) => {
-  client.query("SELECT * FROM famous_people WHERE last_name=$1::text", [query], (err, result) => {
+  client.query("SELECT * FROM famous_people WHERE first_name=$1::text OR last_name=$1::text", [query], (err, result) => {
     console.log("Searching ...");
     //console.log(result.rows[0].number); //output: 1
     if (err) {
