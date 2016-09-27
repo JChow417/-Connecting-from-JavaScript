@@ -6,9 +6,7 @@ function inputQuery(query, cb) {
     if (err) {
       return console.error("error running query", err);
     }
-    //console.log(result);
     cb(result);
-
     client.end();
   });
 }
@@ -24,8 +22,8 @@ function displayResults (result) {
     var day = dob.getUTCDate();
     var month = dob.getMonth()+1;
     var year = dob.getUTCFullYear();
+    console.log(`-${id}: ${firstName} ${lastName}, born '${year}-${month}-${day}'`);
   }
-  console.log(`-${id}: ${firstName} ${lastName}, born '${year}-${month}-${day}'`);
 }
 
 const pg = require("pg");
