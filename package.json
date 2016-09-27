@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JChow417/-Connecting-from-JavaScript#readme",
   "dependencies": {
+    "knex": "^0.12.2",
     "pg": "^6.1.0"
   }
 }

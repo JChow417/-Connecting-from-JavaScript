@@ -6,19 +6,19 @@ function inputQuery(query, cb) {
     if (err) {
       return console.error("error running query", err);
     }
-    cb(result);
+    cb(result.rows);
     client.end();
   });
 }
 
 function displayResults (result) {
   //console.log(result);
-  console.log(`Found ${result.rows.length} person(s) by the name '${input}'`);
-  for(var i = 0; i < result.rows.length; i += 1) {
-    var id = result.rows[i].id;
-    var firstName = result.rows[i].first_name;
-    var lastName = result.rows[i].last_name;
-    var dob = new Date(result.rows[i].birthdate.toString());
+  console.log(`Found ${result.length} person(s) by the name '${input}'`);
+  for(var i = 0; i < result.length; i += 1) {
+    var id = result[i].id;
+    var firstName = result[i].first_name;
+    var lastName = result[i].last_name;
+    var dob = new Date(result[i].birthdate.toString());
     var day = dob.getUTCDate();
     var month = dob.getMonth()+1;
     var year = dob.getUTCFullYear();
