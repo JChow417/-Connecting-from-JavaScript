@@ -32,6 +32,7 @@ var input = process.argv[2];
 knex.select().from('famous_people')
   .where('first_name', input)
   .orWhere('last_name', input)
-    .then((result) => {
-  displayResults(result);
-})
+    .asCallback((err, rows) => {
+      if(err) return console.log(err);
+      displayResults(rows);
+    });
